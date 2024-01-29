@@ -1,1 +1,34 @@
 
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        xy {
+            height: 90%;
+            width: 90%;
+        }
+    </style>
+</head>
+<body>
+<video id = "video" class="xy">
+    <source src="">
+</video>
+
+<script>
+    function getLinkAttributes(link) {
+        var url = new URL(link);
+        var srcData = url.searchParams.get("src");
+        return srcData
+    }
+
+    var link = window.location.href;
+    var music = getLinkAttributes(link)
+    var video = document.getElementById("video");
+    var source = video.querySelector("source");
+    source.src = `./music/${music}.mp4`
+    console.log(`./music/${music}.mp4`)
+</script>
+</body>
+</html>
